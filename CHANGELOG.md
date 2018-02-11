@@ -1,3 +1,7 @@
+# 1.9.4
+
+* Add `docker-compose` wrapper
+
 ## 1.9.3
 
 * Add `CORE_COUNT` for `git fetch`
