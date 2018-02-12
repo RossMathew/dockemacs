@@ -229,6 +229,16 @@ $ dockemacs
 - =WEB_BROWSER= from =env= with =DISPLAY=
 - [[https://docs.docker.com/][Docker]]
 
+**** docker-compose
+
+#+begin_src elisp :tangle no
+;; .dir-locals.el in root project
+
+((nil . ((eval .
+               (progn
+                 (setenv "PROJECT_DOCKER_COMPOSE_CMD" "docker-compose -f docker-compose.yml -f docker-compose.develpment.yml"))))))
+#+end_src
+
 **** [[http://bundler.io/][Bundle]]
 
 #+begin_src elisp :tangle no
