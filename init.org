@@ -131,6 +131,7 @@ alias dockemacs='
   echo "HOST_USER=afsmnghr" >> $HOME/.dockemacs
   echo "HOST_IP=127.1" >> $HOME/.dockemacs # only work with --net=host
   echo "HOST_PORT=22" >> $HOME/.dockemacs
+  echo "HOST_MOUNT_DIR=$HOME" >> $HOME/.dockemacs
   echo "DISPLAY=:0.0" >> $HOME/.dockemacs # required for web browser
   echo "WEB_BROWSER=chromium" >> $HOME/.dockemacs
   echo "REPOSITORY=git@github.com:AfsmNGhr/dockemacs.git" >> $HOME/.dockemacs

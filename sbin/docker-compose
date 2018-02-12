@@ -1,21 +1,30 @@
 #!/usr/bin/env sh
 
+# args :
+#
+#   -f docker-compose.yml -f docker-compose.development.yml \
+#   up --build -d
+
 cat /dev/null > /tmp/docker-compose.out
 
 cmd="$PROJECT_DOCKER_COMPOSE_CMD"
+path="$(printf "%s" "$(pwd)" | sed -e "s/$WORKSPACE/$HOST_MOUNT_DIR/g")"
+echo "$path"
 
 for i in "$@"; do
     case "$i" in
         *\'*)
             i=$(printf "%s" "$i")
             ;;
-        *=*)
-            i=$(printf "%s" "$i" | sed -e "s/=\(.*\)/=\"\1\"/g")
+        *.yml*)
+            i=$(printf "%s" "$i" | sed -e "s/\(.*\)/$path\/\1/g")
             ;;
         *) : ;;
     esac
     cmd="$cmd $i"
 done
+
+echo "$cmd"
 
 if [ "$cmd" != *"exec"* ]; then
     ssh "$HOST_USER@$HOST_IP" -p "$HOST_PORT" \
