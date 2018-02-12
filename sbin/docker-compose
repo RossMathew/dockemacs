@@ -2,7 +2,7 @@
 
 cat /dev/null > /tmp/docker-compose.out
 
-cmd='$PROJECT_DOCKER_COMPOSE_CMD'
+cmd="$PROJECT_DOCKER_COMPOSE_CMD"
 
 for i in "$@"; do
     case "$i" in
